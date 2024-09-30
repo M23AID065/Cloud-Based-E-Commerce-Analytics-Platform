@@ -40,26 +40,6 @@ The **Cloud-Based E-Commerce Analytics Platform** is a scalable, microservices-b
 2. Ensure that Node.js and Spark are properly installed if deploying locally.
 3. Set up a PostgreSQL database and update the `.env` file with the database credentials.
 
-### Steps
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-repo/cloud-ecommerce-analytics.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd cloud-ecommerce-analytics
-   ```
-3. **Build and run Docker containers:**
-   ```bash
-   docker-compose up --build
-   ```
-4. **Run migrations for the database (PostgreSQL):**
-   ```bash
-   docker exec -it <container_name> python manage.py migrate
-   ```
-5. **Access the platform:**
-   - Open a browser and go to `http://localhost:8000` for the dashboard.
-
 ## Usage
 - **Data Ingestion:**
   - Data can be ingested via the provided API at `/api/ingest` (POST method) by sending e-commerce transaction data in JSON format.
@@ -70,24 +50,6 @@ The **Cloud-Based E-Commerce Analytics Platform** is a scalable, microservices-b
 - **Data Visualization:**
   - The results are displayed on the dashboard, which includes interactive charts and reports.
 
-## API Endpoints
-- **POST** `/api/ingest`: To ingest raw e-commerce data.
-- **GET** `/api/visualize`: To fetch processed analytics data.
-
-## Docker Commands
-- **Start services:**
-  ```bash
-  docker-compose up
-  ```
-- **Stop services:**
-  ```bash
-  docker-compose down
-  ```
-- **View logs:**
-  ```bash
-  docker-compose logs
-  ```
-
 ## Contributing
 We welcome contributions to enhance this platform. Please follow the standard GitHub workflow:
 1. Fork the repository.
@@ -95,6 +57,3 @@ We welcome contributions to enhance this platform. Please follow the standard Gi
 3. Make changes and commit (`git commit -m 'Add new feature'`).
 4. Push to the branch (`git push origin feature/your-feature`).
 5. Create a pull request.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
