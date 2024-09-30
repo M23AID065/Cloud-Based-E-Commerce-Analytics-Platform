@@ -1,0 +1,39 @@
+
+version: "3.8"
+
+services:
+  ingestion:
+    build: ./ingestion
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./ingestion:/usr/src/app
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/usr/src/app
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  
+  processing:
+    build: ./processing
+    depends_on:
+      - ingestion
+    volumes:
+      - ./processing:/usr/src/app
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
